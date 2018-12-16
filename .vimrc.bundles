@@ -1,0 +1,19 @@
+if &compatible
+    set nocompatible
+end
+
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+"Plugin 'Valloric/YouCompleteMe'
+Plugin 'fatih/vim-go'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'vim-syntastic/syntastic'
+
+call vundle#end()   
+
+filetype on
