@@ -4,5 +4,6 @@
 
 
 ## Vim
+### Using [Vundle](https://github.com/VundleVim/Vundle.vim):
 
-PluginInstall
+Run `:PluginInstall`
