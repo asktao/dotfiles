@@ -23,7 +23,7 @@ filetype indent plugin on
 set autoread
 
 "显示行号
-"set number
+set number
 "显示光标所在的当前行的行号，其他行都为相对于该行的相对行号。"
 "set relativenumber
 
@@ -32,7 +32,9 @@ set autoread
 " 突出显示当前行
 set cursorline
 
-"set laststatus=2
+set statusline=%-040.40(%F%m%)%-030.30([%l,%c]%)%p%%
+" Always show the status line - use 2 lines for the status bar
+set laststatus=2
 
 " 设置 退出vim后，内容显示在终端屏幕, 可以用于查看和复制, 不需要可以去掉
 " 好处：误删什么的，如果以前屏幕打开，可以找回
@@ -60,7 +62,7 @@ set hlsearch
 " 打开增量搜索模式,随着键入即时搜索
 set incsearch
 " 搜索时忽略大小写
-" set ignorecase
+set ignorecase
 " 有一个或以上大写字母时仍大小写敏感
 " set smartcase
  
@@ -92,7 +94,7 @@ set encoding=utf-8 nobomb
 set list
 set listchars=tab:>-
 
-set t_Co=256
+"set t_Co=256
 
 " The Silver Searcher
 if executable('ag')
@@ -106,11 +108,17 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+
+let g:go_version_warning = 0
